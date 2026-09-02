@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] · Dotnet Example</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DotnetExample.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a class="brand" asp-page="/Index"><span class="brand-mark">D</span> Dotnet Example</a>
+            <div class="nav-links">
+                <a asp-page="/Index">Home</a>
+                <a asp-page="/About">About</a>
+                <a href="/health">Health</a>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="site-main">
+            @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; @DateTime.UtcNow.Year Dotnet Example <span aria-hidden="true">·</span> ASP.NET Core on .NET 8</p>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

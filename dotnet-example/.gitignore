@@ -1,0 +1,18 @@
+# Build and deployment output (publish/ is generated and must not be committed)
+bin/
+obj/
+publish/
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+Properties/launchSettings.local.json
+
+# IDE and user-specific files
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates

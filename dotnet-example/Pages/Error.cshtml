@@ -1,0 +1,18 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Something went wrong";
+}
+
+<section class="error-page" aria-labelledby="error-title">
+    <p class="eyebrow">Unexpected error</p>
+    <h1 id="error-title">We could not complete that request.</h1>
+    <p>Please try again in a moment. If the problem continues, share the request ID below with the site administrator.</p>
+
+    @if (Model.ShowRequestId)
+    {
+        <p class="request-id"><strong>Request ID</strong><code>@Model.RequestId</code></p>
+    }
+
+    <a class="button button-primary" asp-page="/Index">Return home</a>
+</section>

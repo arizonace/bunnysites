@@ -1,0 +1,27 @@
+@page
+@model AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<section class="page-heading" aria-labelledby="about-title">
+    <p class="eyebrow">About this example</p>
+    <h1 id="about-title">Built for a straightforward handoff.</h1>
+    <p>This is an intentionally focused Razor Pages application. It has no database dependency, so it can be copied to a server and published with the standard .NET SDK.</p>
+</section>
+
+<section class="detail-grid" aria-label="Application design">
+    <article>
+        <h2>Today</h2>
+        <p>Nginx terminates TLS and forwards requests to the app on <code>127.0.0.1:5001</code>. The app recognizes the forwarded scheme only when that request originates from loopback.</p>
+    </article>
+    <article>
+        <h2>Tomorrow</h2>
+        <p>Add domain services, authentication, or SQL Server through configuration and dependency injection. Keep connection strings and other secrets out of source control.</p>
+    </article>
+</section>
+
+<section class="callout">
+    <h2>Operational check</h2>
+    <p>The <a href="/health">/health</a> endpoint returns a compact JSON payload suitable for a load balancer, uptime check, or deployment smoke test.</p>
+</section>
