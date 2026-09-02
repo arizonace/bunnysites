@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <header class="page-hero wrap">
+    <p class="eyebrow">{{ if eq .Section "posts" }}The journal{{ else }}{{ .Section }}{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="lede narrow">{{ . }}</div>{{ end }}
+  </header>
+  <section class="wrap post-list" aria-label="Posts">
+    {{ range .Pages }}
+      <article class="post-row">
+        <div><p class="post-meta">{{ .Date | time.Format ":date_long" }} · {{ .ReadingTime }} min read</p><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p>{{ .Summary }}</p></div>
+        <a class="arrow-link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">Read <span aria-hidden="true">→</span></a>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

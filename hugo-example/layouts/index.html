@@ -1,0 +1,41 @@
+{{ define "main" }}
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Small notes for a thoughtful life</p>
+        <h1>Make room for what matters.</h1>
+        <p class="lede">Northstar Journal is a collection of practical reflections on clear thinking, useful tools, and building with intention.</p>
+        <div class="hero-actions">
+          <a class="button" href="{{ "posts/" | relURL }}">Read the journal <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="{{ "about/" | relURL }}">About this project</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="A note from the journal">
+        <p class="card-label">A gentle reminder</p>
+        <p class="card-quote">“A good system should leave you with more attention, not less.”</p>
+        <span class="orbit orbit-one" aria-hidden="true"></span><span class="orbit orbit-two" aria-hidden="true"></span>
+      </aside>
+    </div>
+  </section>
+  <section class="wrap section-space" aria-labelledby="recent-posts">
+    <div class="section-heading">
+      <div><p class="eyebrow">From the journal</p><h2 id="recent-posts">Recent notes</h2></div>
+      <a class="text-link" href="{{ "posts/" | relURL }}">View all posts <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="post-grid">
+      {{ range first 3 (where site.RegularPages "Section" "posts") }}
+        <article class="post-card">
+          <p class="post-meta">{{ .Date | time.Format ":date_long" }} · {{ .ReadingTime }} min read</p>
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Summary }}</p>
+          <a class="arrow-link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">Read note <span aria-hidden="true">→</span></a>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+  <section class="wrap section-space intro-band">
+    <p class="eyebrow">Start here</p>
+    <h2>A journal for doing fewer things, better.</h2>
+    <p>Explore notes on setting sensible defaults, protecting your focus, and choosing tools that stay out of the way.</p>
+  </section>
+{{ end }}

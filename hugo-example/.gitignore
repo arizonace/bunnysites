@@ -1,0 +1,7 @@
+# Hugo build output (generated during local builds and deployment)
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Local tooling
+.DS_Store

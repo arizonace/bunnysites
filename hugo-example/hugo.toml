@@ -1,0 +1,27 @@
+baseURL = "https://jonblog.azone.me/"
+locale = "en-us"
+title = "Northstar Journal"
+enableRobotsTXT = true
+
+[params]
+  description = "A quiet place for practical notes about building a more intentional digital life."
+  author = "Northstar Journal"
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    pageRef = "/"
+    weight = 10
+  [[menus.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 20
+  [[menus.main]]
+    name = "Posts"
+    pageRef = "/posts"
+    weight = 30
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
