@@ -1,5 +1,5 @@
 baseURL = "https://jonblog.azone.me/"
-locale = "en-us"
+languageCode = "en-us"
 title = "Northstar Journal"
 enableRobotsTXT = true
 theme = "hugo-bearblog"
