@@ -1,0 +1,6 @@
+[submodule "hugo-example/themes/ananke"]
+	path = hugo-example/themes/ananke
+	url = https://github.com/gohugo-ananke/ananke
+[submodule "hugo-example/themes/hugo-bearblog"]
+	path = hugo-example/themes/hugo-bearblog
+	url = https://github.com/janraasch/hugo-bearblog.git

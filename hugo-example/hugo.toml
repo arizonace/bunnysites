@@ -2,6 +2,7 @@ baseURL = "https://jonblog.azone.me/"
 locale = "en-us"
 title = "Northstar Journal"
 enableRobotsTXT = true
+theme = "hugo-bearblog"
 
 [params]
   description = "A quiet place for practical notes about building a more intentional digital life."
