@@ -96,6 +96,7 @@ function renderPage({ title, activePage, content }) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A small Express application ready for a loopback Nginx deployment.">
     <title>${title}</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
