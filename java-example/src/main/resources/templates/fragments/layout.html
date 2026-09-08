@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(pageTitle)">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A small Spring Boot site designed for a clean deployment handoff.">
+  <title th:text="${pageTitle} + ' · Java Example'">Java Example</title>
+  <link rel="icon" type="image/svg+xml" th:href="@{/favicon.svg}">
+  <link rel="stylesheet" th:href="@{/site.css}">
+</head>
+<body>
+<header th:fragment="header(activePage)" class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" th:href="@{/}" aria-label="Java Example home">
+      <span class="brand-mark" aria-hidden="true">J</span>
+      <span>Java Example</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a th:href="@{/}" th:classappend="${activePage == 'home'} ? ' is-current' : ''">Home</a>
+      <a th:href="@{/about}" th:classappend="${activePage == 'about'} ? ' is-current' : ''">About</a>
+    </nav>
+  </div>
+</header>
+<footer th:fragment="footer" class="site-footer">
+  <div class="shell footer-inner">
+    <span>Java 21 · Spring Boot · Loopback-ready</span>
+    <a th:href="@{/health}">Service health</a>
+  </div>
+</footer>
+</body>
+</html>

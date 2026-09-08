@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Home')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header('home')}"></header>
+<main>
+  <section class="hero shell">
+    <p class="eyebrow">A small production-minded Spring site</p>
+    <h1>Calm by default.<br><em>Ready to be shipped.</em></h1>
+    <p class="lede">A focused Java 21 and Spring Boot example with server-rendered pages, a clear health signal, and only the essentials needed for a reverse-proxy deployment.</p>
+    <div class="actions">
+      <a class="button" th:href="@{/about}">Read the deployment note <span aria-hidden="true">→</span></a>
+      <a class="text-link" th:href="@{/health}">Check /health</a>
+    </div>
+  </section>
+
+  <section class="shell notes" aria-labelledby="principles-title">
+    <div class="section-heading">
+      <p class="eyebrow">Field notes / 001</p>
+      <h2 id="principles-title">A deliberate little surface area.</h2>
+    </div>
+    <div class="note-grid">
+      <article>
+        <span class="note-number">01</span>
+        <h3>Server rendered</h3>
+        <p>Thymeleaf keeps the page layer direct, readable, and easy to operate without a frontend build pipeline.</p>
+      </article>
+      <article>
+        <span class="note-number">02</span>
+        <h3>Private by default</h3>
+        <p>The embedded server listens on loopback so a later Nginx layer owns the public edge and TLS.</p>
+      </article>
+      <article>
+        <span class="note-number">03</span>
+        <h3>Observable enough</h3>
+        <p>A compact JSON health endpoint gives a monitor or proxy a stable, dependency-free signal.</p>
+      </article>
+    </div>
+  </section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

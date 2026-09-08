@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('About')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header('about')}"></header>
+<main class="shell article-layout">
+  <article class="article">
+    <p class="eyebrow">Deployment note / 002</p>
+    <h1>Built for the handoff between code and a quiet server.</h1>
+    <p class="lede">This application is intentionally independent: no database, no external API, and no container prerequisite. It packages as one executable JAR.</p>
+    <div class="article-rule"></div>
+    <h2>What comes next</h2>
+    <p>In production, Nginx can terminate HTTPS and proxy traffic to this service on <code>127.0.0.1:8081</code>. Spring’s forwarded-header support is enabled, so generated links and redirects can respect the original secure request.</p>
+    <p>Process supervision, certificates, DNS, and any future SQL Server connection belong in the environment’s operational configuration—not in this example application.</p>
+    <a class="button" th:href="@{/}">Back to the site <span aria-hidden="true">←</span></a>
+  </article>
+  <aside class="margin-note" aria-label="Runtime notes">
+    <p class="eyebrow">Runtime</p>
+    <dl>
+      <div><dt>Language</dt><dd>Java 21</dd></div>
+      <div><dt>Framework</dt><dd>Spring Boot 4.1</dd></div>
+      <div><dt>Server</dt><dd>127.0.0.1:8081</dd></div>
+      <div><dt>Health</dt><dd>/health</dd></div>
+    </dl>
+  </aside>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

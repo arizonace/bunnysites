@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: java-example
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${SERVER_PORT:8081}
+  forward-headers-strategy: framework
+  shutdown: graceful
+  error:
+    whitelabel:
+      enabled: false
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
+    include-exception: false
