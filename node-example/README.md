@@ -137,14 +137,14 @@ You will need to replace `BUNNYURL` or `noddy.BUNNYURL` with the site domain nam
 
 The following shell command will replace BUNNYURL in the prototype site files and copy it to the Nginx site configuration folder. 
 
-- Run as `root` (or use `sudo`) 
+- Run as `root` (or use `sudo` with multiple steps) 
 - Run from the root of the repository. (Not from the application folder.)
 - Replace `exɑmple.com` with your own URL.
 
 ```
 sed 's/BUNNYURL/exɑmple.com/g' \
 	aux/etc_nginx_sites-available/noddy.bunnysite.conf >\
-    /etc/nginx/sites-available/noddy.bunnysite.conf.txt
+    /etc/nginx/sites-available/noddy.bunnysite.conf
 ```
 
 This will keep `noddy` as a subdomain of your URL. Put `noddy.BUNNYURL` instead of `BUNNYURL` in the command to replace the whole thing with your URL.
@@ -248,4 +248,13 @@ Then make sure:
 
 Once all the above are true, the site should be visible via HTTP at all the names configured under `server_name` in the Nginx file.
 
+## SSL
+
 Once the site is fully accessible via HTTP, you are ready to enable SSL. Refer to the root `README.md` for instructions on enabling SSL.
+
+Replace `noddy.BUNNYURL` with your actual domain.
+
+```
+sudo certbot --nginx -d noddy.BUNNYURL --redirect --hsts
+```
+

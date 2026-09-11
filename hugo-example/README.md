@@ -82,7 +82,7 @@ For the purpose of following deployment instructions, the live application folde
 As the deploy user, from the live application folder
 
 ```sh
-hugo --minify --baseURL "https://huggy.BUNNYURL/"
+hugo --minify --baseURL "http://huggy.BUNNYURL/"
 ```
 
 #### Test the server
@@ -127,14 +127,14 @@ You will need to replace `BUNNYURL` or `huggy.BUNNYURL` with the site domain nam
 
 The following shell command will replace BUNNYURL in the prototype site files and copy it to the Nginx site configuration folder.
 
-- Run as `root` (or use `sudo`) 
+- Run as `root` (or use `sudo` with multiple steps) 
 - Run from the root of the repository. (Not from the application folder.)
 - Replace `exɑmple.com` with your own URL.
 
 ```
 sed 's/BUNNYURL/exɑmple.com/g' \
 	aux/etc_nginx_sites-available/huggy.bunnysite.conf >\
-    /etc/nginx/sites-available/huggy.bunnysite.conf.txt
+    /etc/nginx/sites-available/huggy.bunnysite.conf
 ```
 
 If you also need to replace the folder, use this command instead.
@@ -181,9 +181,33 @@ http://huggy.exɑmple.com
 
 You should see the site just as well as you could see it locally.
 
+
 ## Service
 
 Hugo builds a static site that is served directly by Nginx. No seperate service is required. Nginx only needs to know where to find the files.
+
+## SSL
+
+Once the site is fully accessible via HTTP, you are ready to enable SSL. Refer to the root `README.md` for instructions on enabling SSL.
+
+Before enabling SSL, rebuild the site using an HTTPS base URL.
+Replace `huggy.BUNNYURL` with your actual domain.
+
+```sh
+hugo --minify --baseURL "https://huggy.BUNNYURL/"
+```
+
+To enable SSL on a static site served by Nginx with Certbot, run the  following:
+```
+sudo certbot certonly --webroot -w /path/to/index/folder -d URL [-d www.URL [-d more.URLs]] --cert-name SITENAME
+```
+
+To enable SSL on the default installation of huggy in `/var/www/bunnysites/hugo-example/` when your domain is `exɑmple.com`
+```
+sudo certbot certonly --webroot -w /var/www/bunnysites/hugo-example/public -d huggy.exɑmple.com --cert-name huggy.exɑmple.com
+```
+
+
 
 ## Editing content
 
