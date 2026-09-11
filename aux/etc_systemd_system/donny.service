@@ -1,0 +1,23 @@
+[Unit]
+Description=DotNet BunnySite Starter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=bunnyuser
+Group=bunnyuser
+WorkingDirectory=/var/www/bunnysites/dotnet-example/publish
+ExecStart=/usr/bin/dotnet /var/www/bunnysites/dotnet-example/publish/DotnetExample.dll
+
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_URLS=http://127.0.0.1:5271
+Environment=DOTNET_NOLOGO=true
+
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+SyslogIdentifier=donny
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,20 @@
+[Unit]
+Description=NPM BunnySite Starter
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bunnyuser
+Group=bunnyuser
+WorkingDirectory=/var/www/bunnysites/node-example
+Environment=NODE_ENV=production
+Environment=PORT=3001
+ExecStart=/usr/bin/npm start
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
